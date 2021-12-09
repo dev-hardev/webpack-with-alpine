@@ -1,0 +1,26 @@
+{
+    "name": "webpack-with-alpine",
+    "version": "1.0.0",
+    "description": "",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dev-hardev/webpack-with-alpine.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/dev-hardev/webpack-with-alpine/issues"
+    },
+    "homepage": "https://github.com/dev-hardev/webpack-with-alpine#readme",
+    "devDependencies": {
+        "webpack": "^5.65.0",
+        "webpack-cli": "^4.9.1"
+    }
+}
