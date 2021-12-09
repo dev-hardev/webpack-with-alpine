@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="shortcut icon" href="./assets/favicon.ico" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+            integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+            crossorigin="anonymous"
+        />
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <title>Webpack with Alpine</title>
+    </head>
+    <body class="text-white bg-dark text-center">
+        <div class="container my-3">
+            <h2 class="mb-4">Coding with Webpack & Alpine 🚀</h2>
+            <section id="errors" @error.window="showErrors($event.detail)" x-data="errorsComponent($dispatch)">
+                <div class="row">
+                    <div class="col-7 offset-2">
+                        <template x-for="error in errors">
+                            <div class="alert alert-danger" role="alert" x-text="error"></div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+            <section id="success" @clear.window="clear()" @success.window="showMessages($event.detail)" x-data="successComponent($dispatch)">
+                <div class="row">
+                    <div class="col-7 offset-2">
+                        <template x-for="message in messages">
+                            <div class="alert alert-success" role="alert" x-text="message"></div>
+                        </template>
+                    </div>
+                </div>
+            </section>
+            <section id="form" class="my-5" x-data="formComponent($dispatch)">
+                <h4>This is a nice form which adds two digits.</h4>
+                <div class="row">
+                    <div class="col-7 offset-2">
+                        <form class="d-flex justify-content-around mt-3" @submit.prevent="add()">
+                            <input type="text" class="form-control mx-3" x-model="firstOperand" placeholder="First Operand" />
+                            <input type="text" class="form-control mx-3" x-model="secondOperand" placeholder="Second Operand" />
+                            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </body>
+    <script src="./src/form.js"></script>
+    <script src="./src/errors.js"></script>
+    <script src="./src/success.js"></script>
+</html>
